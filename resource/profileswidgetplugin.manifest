@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hswidgetmanifest>
+    <uri>profileswidgetplugin</uri> 
+    <title>txt_applib_grid_profiles_widget</title> 
+    <description>Change profiles.</description>
+    <icon>profileswidgetplugin.png</icon>
+    <hidden>false</hidden>
+    <servicexml>profileswidgetplugin.xml</servicexml>
+    <translationfile>profiles_widget</translationfile>
+</hswidgetmanifest>

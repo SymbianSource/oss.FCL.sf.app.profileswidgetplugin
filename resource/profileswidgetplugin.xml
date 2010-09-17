@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+    <name>profileswidgetplugin</name>
+    <filepath>profileswidgetplugin</filepath>
+    <description>Profiles Widget</description>
+    <interface>
+        <name>com.nokia.symbian.IHomeScreenWidget</name>
+        <version>1.0</version>
+        <description>Profiles Widget</description>
+        <capabilities></capabilities>
+        <customproperty key="iconuri">profileswidgetplugin.png</customproperty>
+        <customproperty key="title">Profiles Widget</customproperty>
+    </interface>
+</service>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0" xmlns:qt="http://www.nokia.com/qt">
+   <package id="profileswidgetplugin" name="Profiles Widget" levels="build app">
+    <collection id="profileswidgetplugin_info" name="Profiles Widget Info" level="build">
+     <component id="profileswidgetplugin_rom" name="profiles Widget ROM" filter="s60,dfs_build" introduced="^4">
+      <unit bldFile="rom"/>
+     </component>
+    </collection>
+    <collection id="profileswidgetplugin" name="Profiles Widget Plugin" level="app">
+		<!-- collection is really a component, need to move down a directory -->
+     <component id="profileswidgetplugin_build" name="Profiles Widget Plugin Build" filter="s60,dfs_build" introduced="^4" class="plugin">
+	  <unit bldFile="." qt:proFile="profileswidgetplugin.pro"/>
+     </component>
+     <component id="profileswidgetplugin_test" name="Profiles Widget Plugin Test" filter="s60,dfs_build" introduced="^4">
+      <unit bldFile="tsrc" qt:proFile="tsrc.pro"/>
+     </component>
+    </collection>
+   </package>
+</SystemDefinition>

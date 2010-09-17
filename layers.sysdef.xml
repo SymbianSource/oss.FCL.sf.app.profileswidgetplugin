@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE SystemDefinition SYSTEM "sysdef_1_5_1.dtd" [
+  <!ENTITY layer_real_source_path "sf/app/profileswidgetplugin" >
+]>
+
+<SystemDefinition name="profileswidgetplugin" schema="1.5.1">
+  <systemModel>
+    <layer name="app_layer">
+      <module name="profileswidgetplugin">
+        <unit unitID="profileswidgetplugin_qt" mrp="" bldFile="&layer_real_source_path;" name="profileswidgetplugin_qt" proFile="profileswidgetplugin.pro" qmakeArgs="-r" filter="dfs_build" />
+      </module>
+       <module name="t_profileswidgetplugin">
+        <unit unitID="t_profileswidgetplugin_qt" mrp="" bldFile="&layer_real_source_path;/tsrc" name="t_profileswidgetplugin_qt" proFile="tsrc.pro" qmakeArgs="-r" filter="dfs_build" />
+      </module>
+    </layer>
+  </systemModel>
+</SystemDefinition>
+
+
