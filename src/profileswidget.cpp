@@ -21,6 +21,7 @@
 #include <HbStyle>
 #include <HbDocumentLoader>
 #include <HbFrameDrawer>
+#include <QFontMetrics>
 
 // User includes
 #include "profileswidget.h"
@@ -60,7 +61,9 @@ ProfilesWidget::ProfilesWidget(QGraphicsItem* parent, Qt::WindowFlags flags)
         return;
     }
     
-    mButton->setText(mModel->activeProfileName());
+    QString text = mModel->activeProfileName();
+    mButton->setText(text);   
+    adjustButtonWidth(text);
     HbFrameDrawer *background = new HbFrameDrawer("qtg_fr_hsshortcut_normal", 
             HbFrameDrawer::NinePieces);
     mButton->setFrameBackground(background);
@@ -68,6 +71,29 @@ ProfilesWidget::ProfilesWidget(QGraphicsItem* parent, Qt::WindowFlags flags)
     connect(mButton, SIGNAL(pressed()), this, SLOT(onButtonPressed()));    
     
     setLayout(mainLayout);
+}
+
+/*!
+    Adjust button width according to text length
+*/
+void ProfilesWidget::adjustButtonWidth(const QString &text)
+{ 
+    HbFontSpec *sysFontSpec = new HbFontSpec(HbFontSpec::Secondary);
+    QFont sysFont = sysFontSpec->font();
+    QFontMetrics metrics( sysFont );
+
+    int textWidth = 0;
+    for (int i = 0; i < text.length(); i++) {
+        textWidth += metrics.width(text.at(i));
+    }
+    mButton->setMaximumWidth((textWidth > ProfielsWidgetMinimumWidthInPx 
+        ? textWidth : ProfielsWidgetMinimumWidthInPx) + 
+                ProfilesWidgetWidthSpaceInPx);
+    mButton->setMinimumWidth((textWidth > ProfielsWidgetMinimumWidthInPx 
+        ? textWidth : ProfielsWidgetMinimumWidthInPx) + 
+                ProfilesWidgetWidthSpaceInPx);
+        
+    delete sysFontSpec;
 }
 
 /*!
@@ -81,7 +107,10 @@ void ProfilesWidget::onButtonPressed()
     } else {
         mModel->activateProfile(ProfilesWidgetMeetingProfileId);
     }
-    mButton->setText(mModel->activeProfileName());
+
+    QString text = mModel->activeProfileName();
+    mButton->setText(text);
+    adjustButtonWidth(text);
 }
 
 /*!
@@ -89,7 +118,9 @@ void ProfilesWidget::onButtonPressed()
 */
 void ProfilesWidget::changeIcon()
 {
-    mButton->setText(mModel->activeProfileName());
+    QString text = mModel->activeProfileName();
+    mButton->setText(text);
+    adjustButtonWidth(text);
 }
 
 /*!

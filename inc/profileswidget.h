@@ -37,6 +37,7 @@ public:
     QRectF boundingRect() const;
     QPainterPath shape() const;
     void changeIcon();
+    void adjustButtonWidth(const QString &text);
 
 public slots:
     void onShow();

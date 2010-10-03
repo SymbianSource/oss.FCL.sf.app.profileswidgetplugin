@@ -22,4 +22,7 @@ const int ProfilesWidgetGeneralProfileId = 0;
 const int ProfilesWidgetSilentProfileId = 1;
 const int ProfilesWidgetMeetingProfileId = 2;
 
+const int ProfilesWidgetDefaultNameLength = 7;
+const int ProfielsWidgetMinimumWidthInPx = 80;
+const int ProfilesWidgetWidthSpaceInPx = 20;
 #endif //PROFILESWIDGETCONSTS_H
